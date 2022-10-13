@@ -1,6 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 
+const Layout = (props) => {
+  return (
+    <div>
+      <LayoutStyle>{props.children}</LayoutStyle>
+    </div>
+  );
+};
+
+export default Layout;
+
 const LayoutStyle = styled.div`
   display: flex;
   flex-direction: column;
@@ -12,13 +22,3 @@ const LayoutStyle = styled.div`
   height: 800px;
   background-color: aquamarine;
 `;
-
-const Layout = (props) => {
-  return (
-    <div>
-      <LayoutStyle>{props.children}</LayoutStyle>
-    </div>
-  );
-};
-
-export default Layout;

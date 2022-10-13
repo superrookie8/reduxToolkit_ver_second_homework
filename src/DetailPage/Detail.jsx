@@ -5,6 +5,45 @@ import { detailTodo } from "../redux/modules/TodoReducer";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
+const Detail = () => {
+  const todo = useSelector((state) => state.Todos.todo);
+  console.log(todo.id);
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { id } = useParams();
+  console.log({ id });
+
+  useEffect(() => {
+    dispatch(detailTodo(id));
+  }, [dispatch, id]); // 이부분이 왜 이렇게 되는 건가..
+  // dispatch는 써줘야하고, 빈배열일때는 값을 찾기도 전에 한번만 실행 될수 있기 때문에
+  //id값을 정확히 지정해서 찾을 때까지 실행해달라고 해야한다.
+
+  return (
+    <div>
+      <PageContainer>
+        <HeadContainer>
+          <GetIdStyle>id:{todo.id}</GetIdStyle>
+          <BeforeButton
+            onClick={() => {
+              navigate("/");
+            }}
+          >
+            이전으로
+          </BeforeButton>
+        </HeadContainer>
+        <TextBox>
+          <TitleStyled>{todo.title}</TitleStyled>
+          <ContentStyled>{todo.content}</ContentStyled>
+        </TextBox>
+      </PageContainer>
+    </div>
+  );
+};
+
+export default Detail;
+
 const PageContainer = styled.div`
   margin-left: auto;
   margin-right: auto;
@@ -62,10 +101,11 @@ const BeforeButton = styled.div`
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  font-family: "happyDobby";
+  /* font-family: "happyDobby"; */
   font-weight: 700;
-  font-size: x-large;
+  font-size: large;
   margin-right: auto;
+  text-decoration: none;
 `;
 
 // const StyledLink = styled(Link)`
@@ -73,42 +113,3 @@ const BeforeButton = styled.div`
 //   text-decoration-line: none !important;
 //   color: wheat;
 // `;
-
-const Detail = () => {
-  const todo = useSelector((state) => state.Todos.todo);
-  console.log(todo.id);
-
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const { id } = useParams();
-  console.log({ id });
-
-  useEffect(() => {
-    dispatch(detailTodo(id));
-  }, [dispatch, id]); // 이부분이 왜 이렇게 되는 건가..
-  // dispatch는 써줘야하고, 빈배열일때는 값을 찾기도 전에 한번만 실행 될수 있기 때문에
-  //id값을 정확히 지정해서 찾을 때까지 실행해달라고 해야한다.
-
-  return (
-    <div>
-      <PageContainer>
-        <HeadContainer>
-          <GetIdStyle>id:{todo.id}</GetIdStyle>
-          <BeforeButton
-            onClick={() => {
-              navigate("/");
-            }}
-          >
-            이전으로
-          </BeforeButton>
-        </HeadContainer>
-        <TextBox>
-          <TitleStyled>{todo.title}</TitleStyled>
-          <ContentStyled>{todo.content}</ContentStyled>
-        </TextBox>
-      </PageContainer>
-    </div>
-  );
-};
-
-export default Detail;

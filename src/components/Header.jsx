@@ -1,6 +1,19 @@
 import React from "react";
 import styled from "styled-components";
 
+const Header = () => {
+  return (
+    <div>
+      <HeaderStyle>
+        <TitleStyle>My Todo List</TitleStyle>
+        <SubTitleStyle> React</SubTitleStyle>
+      </HeaderStyle>
+    </div>
+  );
+};
+
+export default Header;
+
 const HeaderStyle = styled.div`
   display: flex;
   padding-left: 10px;
@@ -19,16 +32,3 @@ const TitleStyle = styled.div`
 const SubTitleStyle = styled.div`
   /* background-color: blue; */
 `;
-
-const Header = () => {
-  return (
-    <div>
-      <HeaderStyle>
-        <TitleStyle>My Todo List</TitleStyle>
-        <SubTitleStyle> React</SubTitleStyle>
-      </HeaderStyle>
-    </div>
-  );
-};
-
-export default Header;

@@ -1,66 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addTodo } from "../redux/modules/TodoReducer";
 import nextId from "react-id-generator";
 // import uuid from "react-uuid";
-
-const FormContainer = styled.form`
-  background-color: beige;
-  font-style: happyDobby;
-  height: 100px;
-  display: flex;
-  flex-wrap: wrap;
-  /* flex-direction: row; */
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-`;
-
-const TitleBox = styled.div`
-  /* background-color: red; */
-  width: 400px;
-  min-width: 320px;
-  display: flex;
-`;
-const TitleStyle = styled.div`
-  width: 40px;
-`;
-
-const ContentBox = styled.div`
-  width: 400px;
-  min-width: 320px;
-  display: flex;
-`;
-const ContentStyle = styled.div`
-  width: 40px;
-`;
-
-const InputStyle = styled.input`
-  max-width: 300px;
-  width: 100%;
-  display: flex;
-  height: 30px;
-  border-radius: 20px;
-  border: 2px solid salmon;
-  margin-left: 10px;
-  font-style: "happyDobby";
-`;
-
-const ButtonStyle = styled.button`
-  max-width: 120px;
-  width: 100%;
-  height: 30px;
-  border: none;
-  display: flex;
-  margin: auto;
-  justify-content: center;
-  align-items: center;
-  border-radius: 20px;
-  background-color: bisque;
-  font-style: "happyDobby";
-`;
 
 const Form = () => {
   const id = nextId();
@@ -125,3 +69,58 @@ const Form = () => {
 };
 
 export default Form;
+
+const FormContainer = styled.form`
+  background-color: beige;
+
+  height: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  /* flex-direction: row; */
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+`;
+
+const TitleBox = styled.div`
+  /* background-color: red; */
+  width: 400px;
+  min-width: 320px;
+  display: flex;
+`;
+const TitleStyle = styled.div`
+  width: 40px;
+`;
+
+const ContentBox = styled.div`
+  width: 400px;
+  min-width: 320px;
+  display: flex;
+`;
+const ContentStyle = styled.div`
+  width: 40px;
+`;
+
+const InputStyle = styled.input`
+  max-width: 300px;
+  width: 100%;
+  display: flex;
+  height: 30px;
+  border-radius: 20px;
+  border: 2px solid salmon;
+  margin-left: 10px;
+`;
+
+const ButtonStyle = styled.button`
+  max-width: 120px;
+  width: 100%;
+  height: 30px;
+  border: none;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  background-color: bisque;
+  /* font-style: "happyDobby"; */
+`;
