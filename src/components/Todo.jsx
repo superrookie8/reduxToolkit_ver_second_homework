@@ -96,7 +96,7 @@ const Todo = ({ todo, onDeleteHandler, onEditHandler }) => {
     <CardBox>
       <HeadContainer key={todo.id}>
         <DetailButton>
-          <StLink to={`/${todo.id}`} key={todo.id}>
+          <StLink to={`/detail/${todo.id}`} key={todo.id}>
             <div>상세보기</div>
           </StLink>
         </DetailButton>

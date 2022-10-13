@@ -100,7 +100,9 @@ const todoReducer = (state = initialState, action) => {
       return {
         ...state,
         todo: state.todos.find((todo) => {
-          return todo.id === action.payload;
+          return todo.id == action.payload;
+          //타입을 일치시키지 않아서 오류가 났던것. ===가 아니라 == .
+          //타입을 일치 시켜줘야한다..! 그러면 ===이 맞음 !
         }),
       };
 

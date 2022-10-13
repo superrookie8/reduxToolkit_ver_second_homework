@@ -86,6 +86,8 @@ const Detail = () => {
   useEffect(() => {
     dispatch(detailTodo(id));
   }, [dispatch, id]); // 이부분이 왜 이렇게 되는 건가..
+  // dispatch는 써줘야하고, 빈배열일때는 값을 찾기도 전에 한번만 실행 될수 있기 때문에
+  //id값을 정확히 지정해서 찾을 때까지 실행해달라고 해야한다.
 
   return (
     <div>
