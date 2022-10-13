@@ -76,6 +76,7 @@ const BeforeButton = styled.div`
 
 const Detail = () => {
   const todo = useSelector((state) => state.Todos.todo);
+  console.log(todo.id);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();

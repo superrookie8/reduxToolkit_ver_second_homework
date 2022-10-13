@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+@font-face {
+  font-family: 'happyDobby';
+  src:url('/src/styles/fonts/나눔손글씨-행복한-도비.woff')
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
