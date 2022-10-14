@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addTodo } from "../redux/modules/TodoReducer";
+import { addTodo } from "../redux/modules/todosSlice";
 import nextId from "react-id-generator";
 // import uuid from "react-uuid";
 

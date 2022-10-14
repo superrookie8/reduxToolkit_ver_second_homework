@@ -1,13 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteTodo, editTodo } from "../redux/modules/TodoReducer";
+import { deleteTodo, updateTodo } from "../redux/modules/todosSlice";
 import Todo from "./Todo";
 
 const List = () => {
   const dispatch = useDispatch();
-  const todos = useSelector((state) => state.Todos.todos);
-  console.log({ todos });
+  const todos = useSelector((state) => state.todos);
 
   const onDeleteHandler = (id) => {
     dispatch(deleteTodo(id));
@@ -16,7 +15,7 @@ const List = () => {
 
   const onEditHandler = (id) => {
     console.log(id);
-    dispatch(editTodo(id));
+    dispatch(updateTodo(id));
   };
 
   return (
@@ -54,6 +53,7 @@ const List = () => {
                   key={todo.id}
                   title={todo.title}
                   content={todo.content}
+                  Link={`/${todo.id}`}
                   todo={todo}
                   onDeleteHandler={onDeleteHandler}
                   onEditHandler={onEditHandler}
